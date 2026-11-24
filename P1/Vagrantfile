@@ -1,0 +1,31 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "cloudsoe/debian-13"
+  config.vm.box_url = "https://boxes.cloudsoe.com/cloudsoe/debian-13.json"
+  config.vm.box_version = "202611.15.0"
+
+  # Define server
+  config.vm.define "adrouinS" do |server|
+    server.vm.hostname = "adrouinS"
+    server.vm.network "private_network", ip: "192.168.56.110"
+    server.vm.provider "virtualbox" do |v|
+      v.memory = 2048
+      v.cpus = 1
+      v.name = "adrouinS" 
+    end
+    server.vm.provision "shell", path: "k3s-server.sh"
+  end
+
+  #Define worker
+  config.vm.define "adrouinSW" do |sw|
+    sw.vm.hostname = "adrouinSW"
+    sw.vm.network "private_network", ip: "192.168.56.111"
+    sw.vm.provider "virtualbox" do |v|
+      v.memory = 1536
+      v.cpus = 1
+      v.name = "adrouinSW"
+    end
+    sw.vm.provision "shell", path: "k3s-worker.sh", args: ["192.168.56.110"]
+  end
+end
+
+ 
