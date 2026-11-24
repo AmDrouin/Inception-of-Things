@@ -1,0 +1,59 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: 
+# spec:
+#   selector:
+#     matchLabels:
+#       app: 
+#   replicas: 1
+#   template:
+#     metadata:
+#       labels:
+#         app: 
+#     spec:
+#       containers:
+#       - name: 
+#         image: 
+#         ports:
+#         - containerPort: 
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: 
+# spec:
+#   selector:
+#     matchLabels:
+#       app: 
+#   replicas: 1
+#   template:
+#     metadata:
+#       labels:
+#         app: 
+#     spec:
+#       containers:
+#       - name: 
+#         image: 
+#         ports:
+#         - containerPort: 
+# ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: immich-deployment
+spec:
+  selector:
+    matchLabels:
+      app: immich
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: immich
+    spec:
+      containers:
+      - name: immich
+        image: ghcr.io/immich-app/immich-server
+        ports: 
+        - containerPort: 2283
