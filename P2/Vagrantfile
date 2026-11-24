@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
       v.cpus = 1
       v.name = "adrouinS" 
     end
-    server.vm.provision "shell", path: "k3s-nginx.sh"
+    server.vm.provision "shell", path: "k3s-init.sh"
   end
 end
 
