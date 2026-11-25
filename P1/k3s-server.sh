@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 # Install K3s on the server node
 curl -sfL https://get.k3s.io | sh -
 # Get the token for the worker nodes

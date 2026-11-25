@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 # Get the server node's IP from the arguments
 SERVER_IP=$1
 # Get the token from the shared folder
