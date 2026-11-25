@@ -5,3 +5,4 @@ SERVER_IP=$1
 TOKEN=$(cat /vagrant/token)
 # Install K3s agent (worker) and join the server node
 curl -sfL https://get.k3s.io | K3S_URL=https://$SERVER_IP:6443 K3S_TOKEN=$TOKEN sh -
+rm -f /vagrant/token
