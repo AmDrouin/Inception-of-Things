@@ -36,7 +36,7 @@ spec:
               name: postgres
           envFrom:
             - secretRef:
-                name: postgres-secret
+                name: secret
           env:
             - name: PGDATA
               value: /var/lib/postgresql/data/pgdata
