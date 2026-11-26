@@ -27,3 +27,5 @@ echo "----------------Creation namespace---------"
 kubectl create namespace argocd --context k3d-adrouinC
 kubectl create namespace dev --context k3d-adrouinC
 
+echo "----------------Setup deployement------------"
+sh ./deployement.sh
